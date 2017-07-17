@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	console.log("경로"+location);
+	console.log("경로"+location.pathname);
+	function moveTo(){
+		//상대경로
+		//assign은 히스토리에 저장이된다.
+		//location.assign("ex06_BOM_history1.html");
+		//replace는 히스토리에 저장이 안된다.
+		//location.replace("ex06_BOM_history1.html");
+		location.href="ex06_BOM_history1.html";
+	}
+</script>
+</head>
+<body>
+	여기는 Location
+	<input type="button" value="이동" onclick="moveTo()">
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#area{
+		width: 200px;
+		height: 200px;
+		background-color: #bbbbbb;
+		
+	}
+</style>
+<script>
+	//마우스 이벤트
+	/* 
+		- onclick : 클릭
+		- ondblclick : 더블클릭
+		- onmousedown : 마우스버튼을 누르면
+		- onmouseup : 마우스 버튼 땜
+		- onmousemove : 마우스를 움직일 때
+		- onmouseover : 마우스를 위에 올림
+		- onmouseout : 마우스가 벗어남
+		- ondrag : 마우스 드래그
+	*/
+	
+	//키보드 이벤트
+	/* 
+		- onkeyup : 키보드 버튼을 땔 때
+		- onkeydown : 키보드 버튼을 누르자 마자
+		- onkeypress : = onkeydown
+	*/
+	
+	//기타 이벤트
+	/* 
+		- onchange : 선택이 변경됨
+		- onload : 로드됨
+	*/
+	
+	window.onload = function(){
+		var area = document.getElementById('area');
+		
+		area.onclick = myClick;
+		area.ondblclick = function(){
+			console.log("더블클릭");
+		}
+		area.onmouseover = function(){
+			//console.log('마우스 오버');
+			//document.getElementById('area').style.backgroundColor = "blue";
+		}
+		area.onmouseout = function(){
+			//document.getElementById('area').style.backgroundColor = "red";
+		}
+		area.ondrag = function(){
+			console.log('드래그중');
+		}
+		
+		var text = document.getElementById('text');
+		
+		text.onkeyup = function(event){
+			//console.log('키업');
+			if(event.key == "a"){
+				console.log('a를 입력하셨네요?');
+			}else if(event.key == "b"){
+				console.log('b를 입력하셨네요?')
+			}
+		}
+		
+		var select = document.getElementById('select');
+		select.onchange = function(){
+			//console.log(select.value);
+			area.innerText = select.value;
+		}
+		
+		
+	}
+	
+	function myClick(){
+		console.log('클릭');
+	}
+</script>
+</head>
+<body>
+	<div id="area">
+		
+	</div>
+	<input id="text"/><br>
+	<select id="select">
+		<option value="">::선택하세요::</option>
+		<option value="apple">사과</option>
+		<option value="pair">배</option>
+		<option value="banana">바나나</option>
+	</select>
+</body>
+</html>

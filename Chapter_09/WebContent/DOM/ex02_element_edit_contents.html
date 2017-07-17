@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var song2 = ["남산위에 저 소나무", "철갑을 두른듯","바람서리 불변함은","우리 기상일세"];
+	function second(){
+		var p_tags = document.getElementsByTagName("p");
+		for(var i=0;i<p_tags.length;i++){
+			//p_tags[i].innerHTML = song2[i];
+			//p_tags[i].innerHTML = "<input type='text' value='"+song2[i]+"'/>";
+			p_tags[i].innerText= "<input type='text' value='"+song2[i]+"'/>";
+		}
+	}
+</script>
+</head>
+<body>
+	<p>
+		동해물과 백두산이
+	</p>
+	<p>
+		마르고 닳도록
+	</p>
+	<p>
+		하느님이 보우하사
+	</p>
+	<p>
+		우리 나라만세
+	</p>
+	<input type="button" value="2절" onclick="second();"/>
+</body>
+</html>

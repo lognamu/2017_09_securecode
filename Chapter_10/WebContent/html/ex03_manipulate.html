@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.my_class{
+		font-size: 20pt;
+	}
+	
+	#login{
+		border:1px solid black;
+		width: 300px;
+		height: 80px;
+		display: none;
+		align:"center";
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		//요소추가 삭제
+		//요소 생성
+		var my_h1 = $("<h1>").text("새로생성된 h1태그");
+		
+		//자식요소로 추가
+		$('body').append(my_h1);
+					
+		$('body').prepend("<h2>jQuery로 DOM조작 start!</h2>");
+		
+		$('body').append("<h2>jQuery로 DOM조작 end!</h2>");
+		
+		//형제요소로 추가
+		$('#p2').before("<h2>jQuery로 DOM조작 middle1!</h2>");
+		
+		$('#p2').after("<h2>jQuery로 DOM조작 middle2!</h2>");
+		
+		//요소 삭제
+		//자기자신요소 + 자식요소 모두 삭제 [remove()]
+		
+		//자식요소만 삭제 [empty()]
+		
+		//내용변경 - 일반 자바스크립트에서는 innerHTML = 
+ 		$('#p1').html("<h3>동해물과 백두산이</h3>");
+		$('#p2').text("<h3>마르고 닳도록</h3>");
+		
+		//속성추가
+		$('#p1').attr("style", "color:red");
+		//document.getElementById('p1').style.color = "red";
+		$("#p2").attr({"onclick":"alert('속성변경1')", 
+			           "onmouseover":"console.log('속성변경2')"});
+		
+		//스타일추가
+		$("#p3").css("background-color","blue");
+		$("#p4").css({"border":"1px solid red", "font-family":"굴림"});
+		$("#p3, #p4").addClass("my_class");
+		$("#p3, #p4").addClass("my_class");
+		
+		//애니메이션
+		
+		
+		
+	});
+	
+	function removeFooter(){
+		$('#footer').remove();
+	}
+	
+	function emptyFooter(){
+		$('#footer').empty();
+	}
+	
+	function hide_p1(){
+		//파라미터 (시간, 콜백함수)
+		$("#p1").hide();
+	}
+	
+	function show_p1(){
+		//파라미터 (시간, 콜백함수)
+		$("#p1").show();
+	}
+	
+	function toggle_p1(){
+		$("#p1").toggle();
+	}
+	function toggle_p2(){
+		//파라미터 (시간, 콜백함수)
+		//$("#p2").toggle('slow', toggle_p1);
+		//$("#p2").toggle('fast');
+		$("#p2").toggle(5000);	
+	}
+	
+	function fadeOut_baby(){
+		$("#baby").fadeOut(2000);
+	}
+	
+	function fadeIn_baby(){
+		$("#baby").fadeIn(2000);
+	}
+	function fadeToggle_baby(){
+		$("#baby").fadeToggle(2000);
+	}
+	function fadeTo_baby(){
+		$("#baby").fadeTo(2000, '0.5');
+	}
+	
+	function slideToggle_login(){
+		$("#login").slideToggle(1000, function(){
+			if($("#toggle_login").val() == '로그인'){
+				$("#toggle_login").val("취소");
+				//document.getElementById('toggle_login').value = "취소";
+			}else{
+				$("#toggle_login").val("로그인");
+				//document.getElementById('toggle_login').value = "로그인";
+			}
+		});
+	}
+	
+	function moveLeft_photo(){
+		$('#photo').animate({"margin-left":"0px", opacity: 1});
+	}
+	
+	function moveRight_photo(){
+		$('#photo').animate({"margin-left":"500px", opacity: "0.5"}, 2000, function(){
+			console.log("우로이동");
+		});
+	}
+</script>
+</head>
+<body>
+	<p id="p1">p1입니다.</p>
+	<p id="p2">p2입니다.</p>
+	<p id="p3">p3입니다.</p>
+	<p id="p4">p4입니다.</p>
+	
+	<div id="footer" style="height:100px; border:1px solid blue">
+		<span>학교종이</span>
+		<span>땡땡땡</span>
+	</div>
+	
+	<input type="button" value="remove()" onclick="removeFooter()"/>
+	<input type="button" value="empty()" onclick="emptyFooter()"/>
+	
+	<!-- Basic효과 -->
+	<input type="button" value="p1_hide" onclick="hide_p1()"/>
+	<input type="button" value="p1_show" onclick="show_p1()"/>
+	<input type="button" value="p1_toggle" onclick="toggle_p1()"/>
+	<input type="button" value="p2_toggle" onclick="toggle_p2()"/><br><br>
+	
+	<!-- fade효과 -->
+	<img id="baby" src="../img/baby.jpg"/><br>
+	<input type="button" value="fadeOut" onclick="fadeOut_baby()"/>
+	<input type="button" value="fadeIn" onclick="fadeIn_baby()"/>
+	<input type="button" value="fadeToggle" onclick="fadeToggle_baby()"/>
+	<input type="button" value="fadeTo" onclick="fadeTo_baby()"/><br><br>
+	
+	<!-- 슬라이드효과 -->
+	<div id="login">
+		<table>
+			<tr>
+				<th>아이디</th>
+				<td><input name="id"></td>
+			</tr>
+			<tr>
+				<th>비밀번호</th>
+				<td><input type="password" name="id"></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="button" value="로그인">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<input id="toggle_login" type="button" value="로그인" onclick="slideToggle_login()"/><br>
+	
+	<!-- 애니메이션 효과 -->
+	<img id="photo" src="../img/photo.jpg"><br>
+	<input type="button" value="moveLeft" onclick="moveLeft_photo()"/>
+	<input type="button" value="moveRight" onclick="moveRight_photo()"/>
+	
+</body>
+</html>

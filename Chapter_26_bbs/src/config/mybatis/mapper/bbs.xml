@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bbs">
+  <select id="selectList" resultType="BbsVo">
+  	select * from 
+	  	(select @rn:=@rn+1 rownum, b.* from(
+		  	select * from bbs 
+		  	<if test="option != null">
+		  		<choose>
+		  			<when test="option == 'name'">
+		  				where name like concat('%', #{text}, '%')
+		  			</when>
+		  			<when test="option == 'title'">
+		  				where title like concat('%', #{text}, '%')
+		  			</when>
+		  			<when test="option == 'content'">
+		  				where content like concat('%', #{text}, '%')
+		  			</when>
+		  			<when test="option == 'title_name'">
+		  				where title like concat('%', #{text}, '%') OR
+		  					  name like concat('%', #{text}, '%')
+		  			</when>
+		  		</choose>
+		  	</if>
+		  	order by ref desc , step asc) b, (select @rn := 0) r ) a
+	  	where rownum between #{start} and #{end}
+  </select>
+  <insert id="insert" parameterType="BbsVo">
+  	insert into bbs(name, title, content, ip, regdate, hit, ref, step, depth)
+  	values(#{name}, #{title}, #{content}, #{ip}, curdate(), 0,
+  		   ifnull((select b.* from (select max(idx)+1 from bbs) b),1), 0, 0)
+  </insert>
+  <select id="selectOne" resultMap="bbsMap">
+  	select * from bbs where idx = #{idx}
+  </select>
+  <delete id="delete">
+  	delete from bbs where idx = #{idx}
+  </delete>
+  <update id="update" parameterType="BbsVo">
+  	update bbs set name = #{name}, title = #{title}, content=#{content} where idx = #{idx}
+  </update>
+  <update id="updateStep" parameterType="BbsVo">
+  	update bbs set step = step + 1 where ref = #{ref} and step > #{step}
+  </update>
+  <insert id="reply" parameterType="BbsVo">
+  	insert into bbs(name, title, content, ip, regdate, hit, ref, step, depth)
+  	values(#{name}, #{title}, #{content}, #{ip}, curdate(), 0, #{ref}, #{step}, #{depth})
+  </insert>
+ 
+  <select id="rowCount" parameterType="HashMap" resultType="int">
+  	select count(*) from bbs 
+		  	<if test="option != null">
+		  		<choose>
+		  			<when test="option == 'name'">
+		  				where name like concat('%', #{text}, '%')
+		  			</when>
+		  			<when test="option == 'title'">
+		  				where title like concat('%', #{text}, '%')
+		  			</when>
+		  			<when test="option == 'content'">
+		  				where content like concat('%', #{text}, '%')
+		  			</when>
+		  			<when test="option == 'title_name'">
+		  				where title like concat('%', #{text}, '%') OR
+		  					  name like concat('%', #{text}, '%')
+		  			</when>
+		  		</choose>
+		  	</if>
+  </select>
+ 
+  <resultMap type="BbsVo" id="bbsMap">
+  	<id column="idx" property="idx"/>
+  	<collection property="commentList" 
+  				select="comment.selectList"
+  				ofType="CommentVo"
+  				column="idx" />
+  </resultMap>
+</mapper>

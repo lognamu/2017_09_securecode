@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	/* 태그 선택자 */
+	li{
+		list-style: none;
+	}
+	
+	/* 클래스 선택자 */
+	.abc{
+		color: #ff00ff;
+	}
+	
+	/* 아이디 선택자 */
+	#my{
+		margin-left: 10px;
+		margin-bottom: 50px;
+		margin: 30px;
+	}
+	
+	/* 속성 선택자 */
+	[title]{
+		text-decoration: underline;
+	}
+	
+	[title = "1"]{
+		font-size: 20pt;
+	}
+	
+	/* 의사클래스 */
+	li:hover{
+		font-weight: bold;
+	}
+	
+	/* 자식 자손 관계 */
+	li > p{
+		border: 2px solid aqua;
+	} 
+	
+	li td{
+		border: 2px solid red;
+	}
+	
+	/* 선택자 조합 */
+	
+	p.abc{
+		font-family: 굴림;
+	}
+	
+	/* 다수 선택자 */
+	
+	td, p{
+		background-color: gray;
+	}
+</style>
+</head>
+<body>
+	<ul>
+		<li>동해물과</li>
+		<li class="zzz">백두산이</li>
+		<li class="abc">마르고</li>
+		<li class="abc">닳도록</li>
+		<li title="1">하느님이</li>
+		<li title="2">보우하사</li>
+		<li id="my">우리</li>
+		<li>나라만세</li>
+		<li>
+			<p>zzzz</p>
+			<table>
+				<tr>
+					<td>무궁화 삼천리 화려강산</td>
+				</tr>
+			</table>
+		</li>
+	</ul>
+	<p class="abc">
+		대한사람 대한으로
+	</p>
+	<p>
+		길이 보전하세
+	</p>
+</body>
+</html>

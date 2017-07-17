@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form>
+		<input name="이름" placeholder="이름을 입력해 주세요"><br>
+		<input name="id" placeholder="아이디를 입력해 주세요." ><br>
+		비밀번호<input name="pwd" type="password"><br>
+		성별<input name="gender" type="radio" value="male" checked>남자
+		<input name="gender" type="radio" value="female" >여자<br>
+		취미 <input name="hobby" type="checkbox" value="movie">영화
+		<input name="hobby" type="checkbox" value="music" checked>음악
+		<input name="hobby" type="checkbox" value="book">독서<br>
+		<textarea rows="10" cols="30" name="introduce">여기에 자기소개를 적어주시오</textarea><br>
+		형액형<select name="blood">
+			<option>A형</option>
+			<option selected>B형</option>
+			<option>O형</option>
+			<option value="AB">AB형</option>
+		</select><br>
+		생년월일:<input name="birth" type="date"><br>
+		볼륨<input name="volume" type="range" min="50" max="400"><br>
+		파일첨부<input name="image" type="file"><br>
+		히든<input name="secret" type="hidden" value="987632">과연?<br>
+		
+		<br><input type="submit" value="전송"><input type="reset" value="취소">
+		
+
+	</form>
+</body>
+</html>

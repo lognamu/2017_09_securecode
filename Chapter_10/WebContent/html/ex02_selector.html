@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	/* $(document).ready(function(){
+		
+	}); */
+	$(function(){
+		//태그 선택자
+		$("li").css("listStyle","none");
+		
+		//클래스 선택자
+		$(".abc").css("color", "#ff00ff");
+		
+		//속성 선택자
+		$("[title]").css("text-decoration","underline");
+		$("[title = '2']").text("보우우우우하하하사사사사");
+		//조건 - jquery방식으로 태그들을 선택할 경우 무조건 jquery함수만 사용가능
+		
+		//과제
+		//chapter_05_select부분에서 했던 예제들을 jQuery로 적용해 보시오.
+		$('td, p').css('background-color','gray');
+		
+		
+	});
+</script>
+</head>
+<body>
+	<ul>
+		<li>동해물과</li>
+		<li>백두산이</li>
+		<li class="abc">마르고</li>
+		<li class="def">닳도록</li>
+		<li title="1">하느님이</li>
+		<li title="2">보우하사</li>
+	</ul>
+	<p class="abc">
+		대한사람 대한으로
+	</p>
+	<table>
+		<tr>
+			<td>무궁화 삼천리 화려강산</td>
+		</tr>
+	</table>
+</body>
+</html>

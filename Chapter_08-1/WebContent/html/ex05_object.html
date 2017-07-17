@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function Car(){
+		var msg = "";
+		this.name = "asd";
+		this.getName = function(){
+			return this.name;
+		}
+		this.setName = function(name){
+			this.name = name;
+		}
+	}
+	
+	var myCar = new Car();
+	myCar.setName("BMW i8");
+	console.log(myCar.getName());
+	
+	//JSON
+	var product = {
+			name:'컴퓨터',
+			price:"1000$",
+			show:function(){
+				console.log("품명:"+this.name+" 가격:"+this.price);
+			}
+	}
+	product.show();
+</script>
+</head>
+<body>
+
+</body>
+</html>

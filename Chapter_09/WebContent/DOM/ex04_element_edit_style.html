@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function fontsizeUp(){
+		var p_arr = document.getElementsByTagName('p');
+		for(var i=0;i<p_arr.length;i++){
+			p_arr[i].style.fontSize="20px";
+			p_arr[i].style.color = "red";
+		}
+	}
+</script>
+</head>
+<body>
+	<p>
+		동해물과 백두산이
+	</p>
+	<p>
+		마르고 닳도록
+	</p>
+	<p>
+		하느님이 보우하사
+	</p>
+	<p>
+		우리 나라만세
+	</p>
+	<input type="button" value="클릭1" onclick="fontsizeUp()"/>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	input[type="text"]{
+		width: 243px;
+		text-align: right;
+		padding-right: 10px;
+	}
+	
+	input[type="button"]{
+		margin-top: 5px;
+		width: 60px;
+		height: 30px;
+	}
+</style>
+<script>
+	var expression = "";
+	var display;
+	
+	window.onload = function(){
+		display = document.getElementById('display');
+	}
+	
+	function add(ch){
+		expression += ch;
+		display.value = expression;
+	}
+	
+	function clearDisplay(){
+		expression = "";
+		display.value = expression;
+	}
+	
+	function compute(){
+		display.value = eval(expression);
+		expression = "";
+	}
+</script>
+</head>
+<body>
+	<input type="text" id="display" value="" readonly/><br>
+	<input type="button" value="7" onclick="add('7')"/>
+	<input type="button" value="8" onclick="add('8')"/>
+	<input type="button" value="9" onclick="add('9')"/>
+	<input type="button" value="/" onclick="add('/')"/><br>
+	
+	<input type="button" value="4" onclick="add('4')"/>
+	<input type="button" value="5" onclick="add('5')"/>
+	<input type="button" value="6" onclick="add('6')"/>
+	<input type="button" value="*" onclick="add('*')"/><br>
+	
+	<input type="button" value="1" onclick="add('1')"/>
+	<input type="button" value="2" onclick="add('2')"/>
+	<input type="button" value="3" onclick="add('3')"/>
+	<input type="button" value="-" onclick="add('-')"/><br>
+	
+	<input type="button" value="0" onclick="add('0')"/>
+	<input type="button" value="clear" onclick="clearDisplay()"/>
+	<input type="button" value="enter" onclick="compute()"/>
+	<input type="button" value="+" onclick="add('+')"/><br>
+</body>
+</html>

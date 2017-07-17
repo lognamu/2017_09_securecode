@@ -1,0 +1,56 @@
+@CHARSET "UTF-8";
+div.center{
+	text-align:center;
+	margin:0 auto;
+}
+div.right{
+	width:600px; 
+	text-align:right;
+    margin:auto;
+}
+
+a:link{text-decoration:none; color:navy}
+a:visited{text-decoration:none; color:navy}
+a:hover{text-decoration: none; color:red}
+
+hr{
+	width:600px;
+	border: 1px solid navy;
+	background-color: navy;
+}
+
+table.center{
+	width: 600px;
+	border: 1px solid navy;
+	border-collapse: collapse;
+	font-size: 8pt;
+	margin:0 auto;
+}
+
+table.center th, table.center td{
+	border: 1px solid navy;
+	padding: 4px;
+}
+
+table.center th{
+	text-align: center;
+}
+
+span{
+	color:red;
+}
+
+.cent{
+	text-align: center;
+}
+.right{
+	text-align: right;
+}
+.bold{
+	font-weight: bold;
+}
+
+tr.header{
+	background: #dedede;
+}
+

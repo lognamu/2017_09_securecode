@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+p{
+	border: 1px black solid;
+}
+
+p#p1{
+	color: orange;	
+}
+
+#p2{
+	font-family: 굴림;
+}

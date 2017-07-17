@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="product">
+  <select id="selectList" resultType="vo.ProductVo" parameterType="int">
+  	select * from product where category = #{category}
+  </select>
+  <select id="selectOne" resultType="vo.ProductVo">
+  	select * from product where idx = #{idx}
+  </select>
+  
+  <insert id="insert" parameterType="vo.ProductVo">
+  	insert into product(category, model, manufacturer, 
+  						price_ori, price_sale, sale_rate, 
+  						image_s, image_l, content, regdate) 
+  			    values(#{category}, #{model}, #{manufacturer}, #{price_ori},
+  						#{price_sale}, ((#{price_ori}-#{price_sale})/#{price_ori})*100, 
+  						#{image_s}, #{image_l}, #{content}, curdate())
+  </insert>
+</mapper>

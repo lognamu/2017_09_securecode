@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function change(){
+		var button = document.getElementById("button");
+		if(button.value=="시작"){
+			button.value="멈춤";
+			document.getElementById('text').placeholder="바뀌었죠?";
+		}else{
+			button.value="시작";
+			document.getElementById('text').placeholder="이 곳이 바뀝니다!";
+		}
+	}
+</script>
+</head>
+<body>
+	<input id="button" type="button" value="시작" onclick="change()"/>
+	<input id="text" placeholder="이 곳이 바뀝니다!"/>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comment">
+	<select id="selectList" resultType="CommentVo">
+		select * from comment where b_idx = #{b_idx} order by idx
+	</select>
+	<insert id="insert" parameterType="CommentVo">
+		insert into comment(b_idx, name, content, regdate)
+		values(#{b_idx}, #{name}, #{content}, curdate())
+	</insert>
+</mapper>

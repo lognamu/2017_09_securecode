@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function addtext(){
+		/* var node = document.createTextNode("텍스트 추가!");
+		document.getElementById('target').appendChild(node); */
+		//document.getElementById('target').innerText += '텍스트 추가';
+		
+		var input = document.createElement('input');
+		input.type = "range";
+		input.style.display = "block";
+		document.getElementById("target").appendChild(input);
+	}
+</script>
+</head>
+<body>
+	<div id="target" onclick="addtext()">
+		여기를 클릭해 보세요.
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	//callback함수란 다른함수를 호출할때 파라미터로 전달되는 함수
+ 	setInterval(callMe, 1000);
+	
+	var count = 0;
+	function callMe(){
+ 		console.log(count++);
+ 	}
+	
+</script>
+</head>
+<body>
+	callback
+</body>
+</html>
